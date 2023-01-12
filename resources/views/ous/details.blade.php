@@ -50,7 +50,7 @@
                                 <td><b>Survival Rate:</b></td>
                                 <td>{{$survival_rate}}%</td>
                                 <td><b>Number of Students withdraw from the program:</b></td>
-                                <td>0</td>
+                                <td>{{$num_student_withdraw}}</td>
                             </tr>
                             <tr>
                                 <td><b>Completion Rate:</b></td>

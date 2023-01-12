@@ -517,12 +517,12 @@ class AdviseeSeeder extends Seeder
                 'student_id' => ' 21 ',
                 'term_id' => ' 3 ',
                ],
-               [
-                'id' => ' 84 ',
-                'user_id' => ' 3 ',
-                'student_id' => ' 21 ',
-                'term_id' => ' 4 ',
-               ],
+            //    [
+            //     'id' => ' 84 ',
+            //     'user_id' => ' 3 ',
+            //     'student_id' => ' 21 ',
+            //     'term_id' => ' 4 ',
+            //    ],
                [
                 'id' => ' 85 ',
                 'user_id' => ' 3 ',
@@ -758,12 +758,12 @@ class AdviseeSeeder extends Seeder
                 'student_id' => ' 31 ',
                 'term_id' => ' 3 ',
                ],
-               [
-                'id' => ' 124 ',
-                'user_id' => ' 4 ',
-                'student_id' => ' 31 ',
-                'term_id' => ' 4 ',
-               ],
+            //    [
+            //     'id' => ' 124 ',
+            //     'user_id' => ' 4 ',
+            //     'student_id' => ' 31 ',
+            //     'term_id' => ' 4 ',
+            //    ],
                [
                 'id' => ' 125 ',
                 'user_id' => ' 4 ',
@@ -999,12 +999,12 @@ class AdviseeSeeder extends Seeder
                 'student_id' => ' 41 ',
                 'term_id' => ' 3 ',
                ],
-               [
-                'id' => ' 164 ',
-                'user_id' => ' 5 ',
-                'student_id' => ' 41 ',
-                'term_id' => ' 4 ',
-               ],
+            //    [
+            //     'id' => ' 164 ',
+            //     'user_id' => ' 5 ',
+            //     'student_id' => ' 41 ',
+            //     'term_id' => ' 4 ',
+            //    ],
                [
                 'id' => ' 165 ',
                 'user_id' => ' 5 ',
@@ -1455,12 +1455,12 @@ class AdviseeSeeder extends Seeder
                 'student_id' => ' 70 ',
                 'term_id' => ' 3 ',
                ],
-               [
-                'id' => ' 240 ',
-                'user_id' => ' 6 ',
-                'student_id' => ' 70 ',
-                'term_id' => ' 4 ',
-               ],
+            //    [
+            //     'id' => ' 240 ',
+            //     'user_id' => ' 6 ',
+            //     'student_id' => ' 70 ',
+            //     'term_id' => ' 4 ',
+            //    ],
             
             ];
         Advisee::insert($data);

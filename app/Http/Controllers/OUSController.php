@@ -455,6 +455,19 @@ class OUSController extends Controller
 
     // }
 
+    public function get_withdraw_student($acadYear, $userId){
+        
+        $termId = ($acadYear == "1") ? 2 : 4;
+  
+        $firstSemStudents= DB::select("SELECT count(*) as result from advisees a 
+                                where a.term_id = '1' && a.user_id = '$userId'");
+
+        $secondSemStudents= DB::select("SELECT count(*) as result from advisees a 
+                                where a.term_id = '$termId' && a.user_id = '$userId'");
+
+        return ($firstSemStudents[0]->result-$secondSemStudents[0]->result );
+    }
+
     public function get_ous_details($id){
 
         $report_status = Reports::where('id', $id)->first();
@@ -494,7 +507,7 @@ class OUSController extends Controller
         $student_reports = $this->get_student_records($reports[0]->acadyear_id, $userId);
         $num_student_fail_grade = $this->get_student_fail_grade($reports[0]->acadyear_id, $userId);
         $num_student_inc_grade = $this->get_student_inc_grade($reports[0]->acadyear_id, $userId);
-  
+        $num_student_withdraw = $this->get_withdraw_student($reports[0]->acadyear_id, $userId);
         $num_student_cgpa_below_2_5 = $this->get_cgpa_below_2_5($reports[0]->acadyear_id, $userId);
 
         $termId = $reports[0]->term_id;
@@ -507,7 +520,7 @@ class OUSController extends Controller
                     'program_consultation_advising', 'program_risk_challenges','program_collaboration_linkages', 
                     'program_problems_encountered','survival_rate','num_student_cgpa_below_2_5','average_students_cgpa', 'num_student_fail_grade','student_reports','dropout_rate','average_students_gpa', 'failure_rate','promotion_rate',
                     'reports','program_recommendations','queryNumberEnrolee', 'program_program_plans', 
-                    'report_status', 'num_student_inc_grade','adviser_info'));
+                    'report_status', 'num_student_inc_grade','adviser_info','num_student_withdraw'));
     }
 
 
@@ -550,6 +563,7 @@ class OUSController extends Controller
         $student_reports = $this->get_student_records($reports[0]->acadyear_id, $userId);
         $num_student_fail_grade = $this->get_student_fail_grade($reports[0]->acadyear_id, $userId);
         $num_student_inc_grade = $this->get_student_inc_grade($reports[0]->acadyear_id, $userId);
+         $num_student_withdraw = $this->get_withdraw_student($reports[0]->acadyear_id, $userId);
   
         $num_student_cgpa_below_2_5 = $this->get_cgpa_below_2_5($reports[0]->acadyear_id, $userId);
 
@@ -573,7 +587,7 @@ class OUSController extends Controller
         'program_consultation_advising', 'program_risk_challenges','program_collaboration_linkages', 
         'program_problems_encountered','survival_rate','num_student_cgpa_below_2_5','average_students_cgpa', 'num_student_fail_grade','student_reports','dropout_rate','average_students_gpa', 'failure_rate','promotion_rate',
         'reports','program_recommendations','queryNumberEnrolee', 'program_program_plans', 
-        'report_status', 'num_student_inc_grade','adviser_info',));
+        'report_status', 'num_student_inc_grade','adviser_info','num_student_withdraw'));
                 
         
         $pdfFile=  $pdf->output();
@@ -628,6 +642,7 @@ class OUSController extends Controller
         $student_reports = $this->get_student_records($reports[0]->acadyear_id, $userId);
         $num_student_fail_grade = $this->get_student_fail_grade($reports[0]->acadyear_id, $userId);
         $num_student_inc_grade = $this->get_student_inc_grade($reports[0]->acadyear_id, $userId);
+        $num_student_withdraw = $this->get_withdraw_student($reports[0]->acadyear_id, $userId);
   
         $num_student_cgpa_below_2_5 = $this->get_cgpa_below_2_5($reports[0]->acadyear_id, $userId);
 
@@ -651,7 +666,7 @@ class OUSController extends Controller
         'program_consultation_advising', 'program_risk_challenges','program_collaboration_linkages', 
         'program_problems_encountered','survival_rate','num_student_cgpa_below_2_5','average_students_cgpa', 'num_student_fail_grade','student_reports','dropout_rate','average_students_gpa', 'failure_rate','promotion_rate',
         'reports','program_recommendations','queryNumberEnrolee', 'program_program_plans', 
-        'report_status', 'num_student_inc_grade','adviser_info',));
+        'report_status', 'num_student_inc_grade','adviser_info','num_student_withdraw'));
                 
         // $path = Storage::put('report_pdfs', $pdf->output());
 
