@@ -1,0 +1,53 @@
+@import url('sidebar.css');
+@import url(advisee.css);
+
+.add-report{
+  margin: 1em;
+}
+
+.add-report a {
+  color: white;
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+}
+.create-report{
+  background: #a41d21;
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+.report-container{
+  padding: .5em;
+  
+}
+
+.edit-button i{
+  color: #a41d21;
+  font-size:1.2em;
+}
+.edit-button {
+  border: none;
+  padding: .5em;
+  border-radius: 10px;
+  margin-left: .2em;
+}
+.edit-button a{
+  text-decoration: none;
+}
+
+.btn.btn-info{
+  border: none;
+  background:  #e8e8e8;
+  color: #a41d21;
+  padding: .5em;
+  border-radius: 10px;
+}
+.btn.btn-info i {
+  color: #a41d21;
+  font-size:1.2em;
+}

@@ -1,0 +1,73 @@
+@import url('sidebar.css');
+@import url('advisee.css');
+
+.report-section{
+    background-color:#f7f4ed;
+   
+    
+    
+}
+
+.add-button
+{
+    background: #a41d21;
+    color:white;
+ }
+
+ .add-button a  {
+    color: white;
+ }
+
+ .add-button a i  {
+    color: white;
+ }
+
+ .add-button :hover {
+    background: #a41d21;
+ }
+.report-content{
+    height: 100%;
+    padding: 1em;
+}
+
+.btn-info.add-button i{
+    color: white;
+   text-align: center;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.btn-info.add-button::hover {
+    background: #a41d21;
+}
+.add-btn button {
+    border: none;
+    padding: .5em;
+    border-radius: 10px;
+
+}
+.add-btn i{
+    color: #a41d24;
+    
+}
+.add-btn a {
+    text-decoration: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.remove-btn i{
+    color: #a41d21;
+    font-size: 1.4em!important;
+   
+}
+
+.remove-td {
+    text-align: center!important;
+}
+.remove-btn{
+    border: none;
+    background:none;
+}

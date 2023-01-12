@@ -1,0 +1,23 @@
+@import url(advisee.css);
+@import url(sidebar.css);
+
+p{
+    margin-bottom: 0;
+  }
+  
+  .student-info{
+      margin:.5em;
+  }
+  .sem-info{
+      background:#f2dede;
+  }
+  .gpa {
+      text-align: end;
+  }
+  .gpa-data td{
+      background: #f9f9f9;
+  
+  }
+.eval_info {
+    padding: .9em .5em;
+}

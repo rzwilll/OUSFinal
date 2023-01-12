@@ -1,0 +1,79 @@
+@import url('sidebar.css');
+
+.main-content{
+    padding: .8em 1em;
+   
+}
+.advisee-container
+{
+    border: 1px solid #d4d4d4;
+    margin-top: .5em;
+    background: #ffffff;
+    height: fit-content;
+    
+    
+}
+.top-area{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1em;
+}
+.left-top{
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+}
+.top-left{
+    display: flex;
+    margin-right: 2em;
+    position: relative;
+  
+}
+.button{
+    margin-left: .5em;
+    border: .2px solid ;
+    padding: 0 1em;
+
+}
+.table-body{
+    padding: .5em;
+    overflow-x:auto;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th{
+    background: #f7f4ed;
+  }
+
+  .pagination-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: .5em;
+  }
+.pagination a{
+    padding: .1em .5em;
+    text-decoration: none;
+    border: 1px solid #dddddd;
+    color: #373f47;
+    margin-right: .2em;
+  }
+  .pagination a:hover{
+    background: #a41d21;
+    color: white;
+  }
+
+  table a{
+    color: #a41d21;
+    font: .8em;
+  }
