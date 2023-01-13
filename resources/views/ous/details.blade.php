@@ -647,7 +647,7 @@
                                 <?php
                                             if($report_status->status != 1){?>
                                                 <!-- <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}});"><b style=" color:white; padding:1em;"> Add Report</b></button> -->
-                                                <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}});window.location.href='{{ url('ous/pdf/'.$report_id) }}'"><a href="{{ url('ous/pdf/'.$report_id) }}" style = "text-decoration:none; color:white;"><b style=" color:white; padding:1em;">  Add Report</b></a></button>
+                                                <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}})">Add Report</b></button>
                                                 <a href="{{route('ous.index')}}" class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Save as draft</b></a>
                                                 <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24; color:white;">Save as draft </button> -->
                                                 <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Cancel</b></button> -->
@@ -668,42 +668,42 @@
 
 @endsection
 <script>
-
-    function conferm_submit(e){
-
-        swal({
-            text: 'Are you sure you want to submit this report? Once submitted you can no longer change its content',
-            showCancelButton: false,
-            icon: "warning",
-            buttons: true,
-            closeModal: false,
-        }).then(result => {
-            
-            if (result == true){
-                $(".btn").attr("disabled", true);
-
-                $.ajax({
-                    method: 'GET',
-                    url: '/ous/submit_ous_report/?report_id='+e,
-                    success    :'success',
-                    contentType: false,
-                    processData: false,
-                    success: (response) => {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Your work has been saved',
-                            showConfirmButton: false,
-                            timer: 1500
-                        }).then(result => {
-                            location.reload();
+function conferm_submit(e){
+    swal({
+        text: 'Are you sure you want to submit this report? Once submitted you can no longer change its content',
+        showCancelButton: false,
+        icon: "warning",
+        buttons: true,
+        closeModal: false,
+    }).then(result => {
+        if (result == true){
+            $(".btn").attr("disabled", true);
+            $.ajax({
+                method: 'GET',
+                url: '/ous/submit_ous_report/?report_id='+e,
+                success    :'success',
+                contentType: false,
+                processData: false,
+                success: (response) => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(result => {
+                        $.ajax({
+                            method: 'GET',
+                            url: '/ous/pdf/'+e,
+                            success: (response) => {
+                                location.reload();
+                            }
                         });
-                    }
-                });
-
-            }
-
-        });
-    }
+                    });
+                }
+            });
+        }
+    });
+}
 
     //remove
 

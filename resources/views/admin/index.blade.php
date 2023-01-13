@@ -18,7 +18,7 @@
                     <th>ADVISER:</th>
                     <th></th>
                   </tr>
-                  @foreach($reports as $val)
+                  @foreach($reports->sortByDesc('created_at') as $val)
                     @if($val-> status==1)
                     <tr>
                       <td>{{$val->program}} (A.Y: {{$val->school_year}})</td>
