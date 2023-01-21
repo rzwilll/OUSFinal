@@ -110,4 +110,7 @@ Route::get('admin/home', [OUSController::class, 'adminHome'])->name('admin.home'
 Route::get('/admin/report/{id}', [App\Http\Controllers\OUSController::class, 'admin_view_report'])->middleware('is_admin');
 Route::get('/admin/report/{id}',[OUSController::class,'admin_view_report'])->name('admin_view_report')->middleware('is_admin');
 
+Route::get('/admin/resubmit/{id}', [App\Http\Controllers\OUSController::class, 'request_resubmit'])->middleware('is_admin');
+Route::get('/admin/resubmit/{id}',[OUSController::class,'request_resubmit'])->name('request_resubmit')->middleware('is_admin');
+
 });

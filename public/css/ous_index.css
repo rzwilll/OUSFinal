@@ -51,3 +51,27 @@ a{
   color: #a41d21;
   font-size:1.2em;
 }
+.edit_submissiont:hover:after {
+  content: attr(title);
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 4px 8px;
+  z-index: 1;
+}
+.edit_submission{
+  text-align: center;
+  padding-right: 0!important;
+}
+.edit i{
+  color:#a41d21;
+  font-size: 1.8em;
+  
+}
+.edit {
+  border: none;
+  background: none;
+}
+.edit-report{
+  text-align: center;
+}

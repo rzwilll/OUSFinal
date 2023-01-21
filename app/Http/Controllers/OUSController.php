@@ -73,6 +73,19 @@ class OUSController extends Controller
         return view('admin.index', compact('reports'));
     }
 
+    public function request_resubmit($id)
+    {
+       
+    // Delete the record in the report_pdfs table
+    DB::table('report_pdfs')->where('report_id', $id)->delete();
+
+    // Update the status of the report record
+    $report = Reports::find($id);
+    $report->status = 0;
+    $report->save();
+
+    return redirect()->back()->with('status', 'Updated Successfully');
+    }
     // public function admin_view_report($id) {
     //     $pdf = ReportPdfs::where ('report_id', $id)->first();  
 
