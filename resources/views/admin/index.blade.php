@@ -17,7 +17,7 @@
                     <th>DATE:</th>
                     <th>ADVISER:</th>
                     <th></th>
-                    <th><small>Request for resubmission</small></th>
+                    <th><small></small></th>
                   </tr>
                   @foreach($reports->sortByDesc('created_at') as $val)
                     @if($val-> status==1)
@@ -46,7 +46,7 @@
                           
                       </td>
                       <td  class ="edit-report">
-                        <button type =button class="edit" id = "edit_submission"onclick="confirm_resubmission({{$val->re_id}})" title = "Request for resubmission of report">
+                        <button type =button class="edit" id = "edit_submission" onclick="confirm_resubmission({{$val->re_id}})" title = "Request for resubmission of report">
                             
                            
                         <i class='bx bx-message-square-x'></i>
