@@ -46,7 +46,7 @@
                           
                       </td>
                       <td  class ="edit-report">
-                        <button type =button class="edit" id = "edit_submission" onclick="confirm_resubmission({{$val->re_id}})" title = "Request for resubmission of report">
+                        <button type =button class="edit" style ="border:none; color:#a41d21; "id = "edit_submission" onclick="confirm_resubmission({{$val->re_id}})" title = "Request for resubmission of report">
                             
                            
                         <i class='bx bx-message-square-x'></i>
