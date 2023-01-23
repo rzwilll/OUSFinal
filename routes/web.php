@@ -114,4 +114,7 @@ Route::get('/admin/report/{id}',[OUSController::class,'admin_view_report'])->nam
 Route::get('/admin/resubmit/{id}', [App\Http\Controllers\OUSController::class, 'request_resubmit'])->middleware('is_admin');
 Route::get('/admin/resubmit/{id}',[OUSController::class,'request_resubmit'])->name('request_resubmit')->middleware('is_admin');
 
+Route::get('/admin/approvalstatus/{id}', [App\Http\Controllers\OUSController::class, 'approve_report'])->middleware('is_admin');
+Route::get('/admin/approvalstatus/{id}',[OUSController::class,'approve_report'])->name('approve_report')->middleware('is_admin');
+
 });
