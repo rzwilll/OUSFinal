@@ -86,6 +86,20 @@ class OUSController extends Controller
 
     return redirect()->back()->with('status', 'Updated Successfully');
     }
+
+    public function approve_report($id){
+        $report = Reports::find($id);
+        $report->status = 3;
+        $report->save();
+
+        $approve = DB::table('report_pdfs')
+        ->where('report_id', $id)
+        ->update(['status' => 1]);
+
+        return redirect()->back()->with('status', 'Updated Successfully');
+
+
+    }
     // public function admin_view_report($id) {
     //     $pdf = ReportPdfs::where ('report_id', $id)->first();  
 

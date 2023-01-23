@@ -106,6 +106,7 @@ Route::get('/ous/submit_ous_report', [App\Http\Controllers\OUSController::class,
 
 
 Route::get('admin/home', [OUSController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/home', [App\Http\Controllers\OUSController:: class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 Route::get('/admin/report/{id}', [App\Http\Controllers\OUSController::class, 'admin_view_report'])->middleware('is_admin');
 Route::get('/admin/report/{id}',[OUSController::class,'admin_view_report'])->name('admin_view_report')->middleware('is_admin');

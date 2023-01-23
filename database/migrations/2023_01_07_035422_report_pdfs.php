@@ -20,6 +20,7 @@ return new class extends Migration
             $table -> unsignedBigInteger('report_id');
             $table->string('pdf_path');
             $table->binary('pdf_file');
+            $table->tinyInteger('status')->default(0);
             $table ->foreign('report_id')
                 ->references('id')
                 ->on('reports')

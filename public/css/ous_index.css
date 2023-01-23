@@ -51,6 +51,7 @@ a{
   color: #a41d21;
   font-size:1.2em;
 }
+
 .edit_submissiont:hover:after {
   content: attr(title);
   position: absolute;
@@ -74,4 +75,54 @@ a{
 }
 .edit-report{
   text-align: center;
+  align-items: center;
+}
+.icon-btn {
+    display: flex;
+    align-items: center;
+    background: #a41d21;
+    padding: .5em;
+    border: none;
+    border-radius: 5px;
+    margin-right: .5em;
+}
+
+.icon-btn i {
+    font-size: 1.2em;
+    margin-right: 0.2em;
+}
+
+.icon-btn span {
+    font-size: 1em;
+}
+
+
+.pending{
+  background: rgb(221, 221, 55);
+  padding: .4em;
+  color: #fff;
+  border-radius: 5px;
+}
+.approve{
+  background: green;
+  padding: .4em;
+  color: #fff;
+  border-radius: 5px;
+}
+.draft{
+  background: grey;
+  padding: .4em;
+  color: #fff;
+  border-radius: 5px;
+}
+.revision{
+  background: rgb(203, 10, 10);
+  padding: .4em;
+  color: #fff;
+  border-radius: 5px;
+}
+.app-status{
+  background:#a41d21;
+  color: #fff;
+  border-radius: 5px;
 }

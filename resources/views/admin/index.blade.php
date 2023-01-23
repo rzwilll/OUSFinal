@@ -16,11 +16,61 @@
                     <th>REPORT:</th>
                     <th>DATE:</th>
                     <th>ADVISER:</th>
-                    <th></th>
-                    <th><small></small></th>
+                    <th>VIEW DETAILS:</th>
+                    <th><small>ACTION:</small> </th>
                   </tr>
-                  @foreach($reports->sortByDesc('created_at') as $val)
+                  @foreach($reports as $val)
                     @if($val-> status==1)
+                    <tr>
+                      <td>{{$val->program}} (A.Y: {{$val->school_year}})</td>
+                        <td>{{  date('M d, Y', strtotime($val->created_at)) }}</td>
+                        <td>{{$val->name}}</td>
+                        <td> 
+                          
+          
+                          <a href="{{ url('admin/report/'.$val->re_id) }}" type="button">
+                            
+                            <div class="btn btn-info">
+                              <i class='bx bx-show'></i>View
+                            </div>
+                            <!-- <div class="btn btn-info" style= "margin-left:.5em;">
+                              <a href="{{ url('ous/pdf/'.$val->re_id) }}" type=button> <i class='bx bxs-download'></i> PDF</a>
+                            </div> -->
+                           
+                          </a>
+
+                          
+
+                          
+                          <!-- <button class="edit-button"> <a href="{{ route('ous.edit')}}"><i class='bx bxs-edit' ></i>Edit</a></button> -->
+                          
+                      </td>
+                      <!-- changes -->
+
+                      <td>
+                        <div class="button-container" style = "display:flex;">
+                        <small>
+                          <button class="icon-btn" id = "edit_submission"onclick="approve_report({{$val->re_id}})" title = "Approve report">
+                            <i class='bx bxs-check-square'></i>                        
+                            <span>Approve</span>
+                          </button>
+                        </small>
+                        
+                        <small>
+                          <button class="icon-btn" id = "edit_submission"onclick="confirm_resubmission({{$val->re_id}})" title = "Request for revision of report">
+                            <i class='bx bxs-edit-alt'></i> 
+                            <span>Revise</span>
+                          </button>
+                        </small>
+
+                        
+
+                        </div>
+
+
+                      </td>
+                    </tr>
+                    @elseif ($val->status==3)
                     <tr>
                       <td>{{$val->program}} (A.Y: {{$val->school_year}})</td>
                         <td>{{  date('M d, Y', strtotime($val->created_at)) }}</td>
@@ -45,17 +95,10 @@
                           <!-- <button class="edit-button"> <a href="{{ route('ous.edit')}}"><i class='bx bxs-edit' ></i>Edit</a></button> -->
                           
                       </td>
-                      <td  class ="edit-report">
-                        <button type =button class="edit" style ="border:none; color:#a41d21; "id = "edit_submission" onclick="confirm_resubmission({{$val->re_id}})" title = "Request for resubmission of report">
-                            
-                           
-                        <i class='bx bx-message-square-x'></i>
-                            
-                            <!-- <div class="btn btn-info" style= "margin-left:.5em;">
-                              <a href="{{ url('ous/pdf/'.$val->re_id) }}" type=button> <i class='bx bxs-download'></i> PDF</a>
-                            </div> -->
-                           
-                        </button>
+                      <!-- changes -->
+
+                      <td>
+                          <small class ="approve">Approved</small>
                       </td>
                     </tr>
                     @endif
@@ -94,10 +137,27 @@ function confirm_resubmission(id){
         });
     }
 
+      function approve_report(id) {
+      $.ajax({
+          type: "GET",
+          url: '/admin/approvalstatus/' + id,
+          success: (response) => {
+              swal({
+                  icon: 'success',
+                  title: 'Report Approved Successfully',
+                  showConfirmButton: false,
+                  timer: 1000
+              }).then(result => {
+                  location.reload();
+              });
+          }
+      });
+  }
+
+
 
 
 </script>
 
-                                        
 
                                         

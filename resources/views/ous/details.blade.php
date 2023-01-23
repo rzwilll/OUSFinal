@@ -645,13 +645,17 @@
                         <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Cancel</b></button> -->
 
                                 <?php
-                                            if($report_status->status != 1){?>
+                                             if($report_status->status != 1){?>
                                                 <!-- <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}});"><b style=" color:white; padding:1em;"> Add Report</b></button> -->
                                                 <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}})"><b style=" color:white; padding:1em;">Add Report</b></button>
                                                 <a href="{{route('ous.index')}}" class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Save as draft</b></a>
                                                 <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24; color:white;">Save as draft </button> -->
                                                 <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Cancel</b></button> -->
 
+                                            <?php } elseif ($report_status->status==2) { ?>
+                                                <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}})"><b style=" color:white; padding:1em;">Add Report</b></button>
+                                                <a href="{{route('ous.index')}}" class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Save as draft</b></a>
+                                            
                                             <?php } else { ?>
                                             <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Back</b></button> -->
                                             <a href="{{route('ous.index')}}" class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Back</b></a>
