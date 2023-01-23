@@ -81,7 +81,7 @@ class OUSController extends Controller
 
     // Update the status of the report record
     $report = Reports::find($id);
-    $report->status = 0;
+    $report->status = 2;
     $report->save();
 
     return redirect()->back()->with('status', 'Updated Successfully');
