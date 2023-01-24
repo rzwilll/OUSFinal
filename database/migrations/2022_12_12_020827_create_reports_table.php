@@ -17,6 +17,7 @@ return new class extends Migration
             $table -> id();
             $table -> unsignedBigInteger('advisee_id');
             $table -> tinyInteger('status')->default(0);
+            $table-> string('remarks')->nullable();
             $table ->foreign('advisee_id')//
                 ->references('id')
                 ->on('advisees')
