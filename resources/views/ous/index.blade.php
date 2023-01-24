@@ -35,9 +35,9 @@
                             <div class="btn btn-info">
                               <i class='bx bx-show'></i>View
                             </div>
-                            <div class="btn btn-info" style= "margin-left:.5em;">
+                            <!-- <div class="btn btn-info" style= "margin-left:.5em;">
                               <a href="{{ url('ous/copy/'.$val->re_id) }}" type=button> <i class='bx bxs-download'></i> PDF</a>
-                            </div>
+                            </div> -->
                            
                             @elseif($val->status == 2)
                             <div class="btn btn-info">
