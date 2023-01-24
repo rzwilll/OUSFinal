@@ -77,7 +77,7 @@
                     </tr>
                     @elseif ($val->status==3)
                     <tr>
-                      <td>{{$val->program}} (A.Y: {{$val->school_year}})</td>
+                      <td>{{$val->course}}(A.Y: {{$val->school_year}})</td>
                         <td>{{  date('M d, Y', strtotime($val->created_at)) }}</td>
                         <td>{{$val->name}}</td>
                         <td>
