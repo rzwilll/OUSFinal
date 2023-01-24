@@ -20,6 +20,7 @@ return new class extends Migration
             $table -> id();
             $table -> unsignedBigInteger('department_id');
             $table -> string('program_name');
+            $table -> string('short_name');
             $table -> foreign('department_id')
                     ->references('id')
                     -> on('departments')

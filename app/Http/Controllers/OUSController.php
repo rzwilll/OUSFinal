@@ -68,7 +68,7 @@ class OUSController extends Controller
         ->join('advisers','users.id', '=', 'advisers.user_id')
         ->join('departments', 'advisers.department_id', '=', 'departments.id')
         ->join('programs', 'departments.id','=', 'programs.department_id')
-        ->select('reports.id as re_id', 'reports.status', 'programs.program_name as program', 'users.name as name', 'acad_years.acad_yr as school_year', 'reports.created_at')
+        ->select('reports.id as re_id', 'programs.short_name as course','reports.status', 'programs.program_name as program', 'users.name as name', 'acad_years.acad_yr as school_year', 'reports.created_at')
         ->get();
         return view('admin.index', compact('reports'));
     }

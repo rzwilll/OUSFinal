@@ -20,12 +20,14 @@ class ProgramSeeder extends Seeder
             [
                 'id' => '1',
                 'department_id' => '1',
-                'program_name' => ' Bachelor of Science in Information Technology'
+                'program_name' => ' Bachelor of Science in Information Technology',
+                'short_name' => 'BS-IT'
             ],
             [
                 'id' => '2',
                 'department_id' => '3',
-                'program_name' => 'Bachelor of Science in Computer Science'
+                'program_name' => 'Bachelor of Science in Computer Science',
+                'short_name' => 'BS-CS',
             ],
             
         ];
