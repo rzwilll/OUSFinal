@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('pdf_path');
             $table->binary('pdf_file');
             $table->tinyInteger('status')->default(0);
+            $table->string('remarks')->nullable();
             $table ->foreign('report_id')
                 ->references('id')
                 ->on('reports')

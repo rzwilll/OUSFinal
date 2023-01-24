@@ -52,7 +52,7 @@ class OUSController extends Controller
         ->join('advisees', 'advisees.term_id', '=', 'acad_terms.id')
         ->join('reports', 'reports.advisee_id', '=', 'advisees.id')
         ->where('advisees.user_id', '=', auth()->user()->id)
-        ->select('reports.id as re_id', 'reports.status', 'acad_years.acad_yr as school_year', 'reports.created_at')
+        ->select('reports.id as re_id',  'reports.remarks as remarks','reports.status', 'acad_years.acad_yr as school_year', 'reports.created_at')
         ->get();
         return view('ous.index', compact('reports'));
     }
@@ -75,16 +75,18 @@ class OUSController extends Controller
 
     public function request_resubmit($id)
     {
-       
-    // Delete the record in the report_pdfs table
-    DB::table('report_pdfs')->where('report_id', $id)->delete();
-
-    // Update the status of the report record
-    $report = Reports::find($id);
-    $report->status = 2;
-    $report->save();
-
-    return redirect()->back()->with('status', 'Updated Successfully');
+        $remarks = request()->input('remarks'); // retrieve the passed remarks
+    
+        // Delete the record in the report_pdfs table
+        DB::table('report_pdfs')->where('report_id', $id)->delete();
+    
+        // Update the status of the report record and the remarks
+        $report = Reports::find($id);
+        $report->status = 2;
+        $report->remarks = $remarks;
+        $report->save();
+    
+        return redirect()->back()->with('status', 'Updated Successfully');
     }
 
     public function approve_report($id){

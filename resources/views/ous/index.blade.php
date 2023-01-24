@@ -20,6 +20,7 @@
                     <th>DATE:</th>
                     <th>ACTION:</th>
                     <th>STATUS:</th>
+                    <th>REMARKS:</th>
                     
                   </tr>
                   @foreach($reports as $val)
@@ -35,9 +36,9 @@
                             <div class="btn btn-info">
                               <i class='bx bx-show'></i>View
                             </div>
-                            <!-- <div class="btn btn-info" style= "margin-left:.5em;">
+                            <div class="btn btn-info" style= "margin-left:.5em;">
                               <a href="{{ url('ous/copy/'.$val->re_id) }}" type=button> <i class='bx bxs-download'></i> PDF</a>
-                            </div> -->
+                            </div>
                            
                             @elseif($val->status == 2)
                             <div class="btn btn-info">
@@ -81,6 +82,20 @@
 
 
                         </td>
+
+                      <td>
+                         @if($val->status==1)
+                            <small style ="font-style:italic">Submitted for checking..</small>
+                          @elseif($val->status==2)
+                            <small style ="font-style:italic">{{$val->remarks}}</small>
+                          @elseif($val->status==3)
+                            <small style ="font-style:italic"> Approved</small>
+                          @else 
+                            <small></small>
+
+                          @endif
+
+                      </td>
                     </tr>
                   @endforeach
                 </table>

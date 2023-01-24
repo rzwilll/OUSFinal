@@ -17,7 +17,9 @@
                     <th>DATE:</th>
                     <th>ADVISER:</th>
                     <th>VIEW DETAILS:</th>
+                    <th>REMARKS:</th>
                     <th><small>ACTION:</small> </th>
+                    
                   </tr>
                   @foreach($reports as $val)
                     @if($val-> status==1)
@@ -46,6 +48,9 @@
                           
                       </td>
                       <!-- changes -->
+                      <td>
+                      <input type="text " name="remarks" id="date"  value="" onfocusout="" class="form-control"placeholder="leave remarks..">
+                      </td>
 
                       <td>
                         <div class="button-container" style = "display:flex;">
@@ -57,7 +62,7 @@
                         </small>
                         
                         <small>
-                          <button class="icon-btn" id = "edit_submission"onclick="confirm_resubmission({{$val->re_id}})" title = "Request for revision of report">
+                          <button class="icon-btn" id = "edit_submission"onclick="confirm_resubmission({{$val->re_id}}, document.getElementById('date').value)" title = "Request for revision of report">
                             <i class='bx bxs-edit-alt'></i> 
                             <span>Revise</span>
                           </button>
@@ -91,12 +96,12 @@
 
                           
 
-                          
-                          <!-- <button class="edit-button"> <a href="{{ route('ous.edit')}}"><i class='bx bxs-edit' ></i>Edit</a></button> -->
-                          
                       </td>
                       <!-- changes -->
 
+                      <td>
+                        <small style = "font-style:italic;">Report has been approved</small>
+                      </td>
                       <td>
                           <small class ="approve">Approved</small>
                       </td>
@@ -110,32 +115,62 @@
 
 @endsection
 <script>
+// function confirm_resubmission(id){
+//         swal({
+//             text: 'Confirm request for resubmission',
+//             icon: "warning",
+//             buttons: true,
+//             closeModal: false,
+//             showCancelButton: true,
+//         }).then(result => {
+//             if (result == true){
+//                 $.ajax({
+//                     type: "GET",
+//                     url: '/admin/resubmit/' + id,
+//                     success: (response) => {
+//                         swal({
+//                             icon: 'success',
+//                             title: 'Requested Successfully',
+//                             showConfirmButton: false,
+//                             timer: 1500
+//                         }).then(result => {
+//                             location.reload();
+//                         });
+//                     }
+//                 });
+//             }
+//         });
+//     }
+
+
 function confirm_resubmission(id){
-        swal({
-            text: 'Confirm request for resubmission',
-            icon: "warning",
-            buttons: true,
-            closeModal: false,
-            showCancelButton: true,
-        }).then(result => {
-            if (result == true){
-                $.ajax({
-                    type: "GET",
-                    url: '/admin/resubmit/' + id,
-                    success: (response) => {
-                        swal({
-                            icon: 'success',
-                            title: 'Requested Successfully',
-                            showConfirmButton: false,
-                            timer: 1500
-                        }).then(result => {
-                            location.reload();
-                        });
-                    }
-                });
-            }
-        });
-    }
+    let remarks = document.getElementById('date').value;
+    swal({
+        text: 'Confirm request for resubmission',
+        icon: "warning",
+        buttons: true,
+        closeModal: false,
+        showCancelButton: true,
+    }).then(result => {
+        if (result == true){
+            $.ajax({
+                type: "GET",
+                url: '/admin/resubmit/' + id,
+                data: {remarks:remarks},
+                success: (response) => {
+                    swal({
+                        icon: 'success',
+                        title: 'Requested Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(result => {
+                        location.reload();
+                    });
+                }
+            });
+        }
+    });
+}
 
       function approve_report(id) {
       $.ajax({
@@ -153,6 +188,8 @@ function confirm_resubmission(id){
           }
       });
   }
+
+
 
 
 
