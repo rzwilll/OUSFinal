@@ -97,7 +97,7 @@
                                 <tr>
                                     <td colspan="3"class="report-section"><b>II. Program Engagement & Activities</b> </th>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status ==0 || $report_status->status ==2 ){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_program_engagement_activities({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -120,7 +120,7 @@
                                     <td><b> Accomplishment</b></td>
                                     
                                     <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                  <td></td>
 
                                             <?php }
@@ -132,7 +132,7 @@
                                     <td>
                                         <?php
 
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_progAc->objective_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="objective" class="form-control" value="{{$val_progAc->objective_desc}}" onfocusout="update_program_engagement_activities({{$val_progAc->id}}, 'objective_desc', this)" placeholder=".....">
@@ -145,7 +145,7 @@
                                     <td>
                                         <?php
 
-                                            if($report_status->status == 1){?>
+                                            if($report_status->status == 1 || $report_status->status ==3){?>
                                                 <p>{{$val_progAc->activities_desc}}</p>
                                             <?php } else { ?>
                                                 <input type="text " name="" id="activities" class="form-control" value="{{$val_progAc->activities_desc}}" onfocusout="update_program_engagement_activities({{$val_progAc->id}}, 'activities_desc', this)" placeholder=".....">
@@ -158,7 +158,7 @@
                                     <td>
                                         <?php
 
-                                        if($report_status->status == 1){?>
+                                        if($report_status->status == 1 || $report_status->status ==3){?>
                                             <p>{{$val_progAc->accomplishment_desc}}</p>
                                         <?php } else { ?>
                                             <input type="text " name="" id="accomplishment" class="form-control" value="{{$val_progAc->accomplishment_desc}}" onfocusout="update_program_engagement_activities({{$val_progAc->id}}, 'accomplishment_desc', this)" placeholder=".....">
@@ -172,7 +172,7 @@
                                     <!-- <td><input type="text " name="" id="accomplishment" class="form-control" value="{{$val_progAc->accomplishment_desc}}" onfocusout="update_program_engagement_activities({{$val_progAc->id}}, 'accomplishment_desc', this)" placeholder="....."></td> -->
                                     
                                     <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0|| $report_status->status ==2){?>
                                                 <td class= "remove-td">
                                                     <?php
                                                         if($index > 4){?>
@@ -193,7 +193,7 @@
                                 <tr>
                                     <td colspan="2" class="report-section"><b>III. Program Outputs and Deliverables</b></td>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status == 0 || $report_status->status ==2){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_program_output_deliverables({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -209,7 +209,7 @@
                                     <td><b>Program Outputs</b></td>
                                     <td><b>Deliverables</b></td>
                                     <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                  <td></td>
 
                                             <?php }
@@ -221,7 +221,7 @@
                                     <td>
                                         <?php
 
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_progDeli->outputs_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="prog_output" value="{{$val_progDeli->outputs_desc}}" onfocusout="update_program_output_deliverables({{$val_progDeli->id}}, 'outputs_desc', this)" class="form-control"placeholder="...">
@@ -234,7 +234,7 @@
                                     <td>
                                         <?php
 
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_progDeli->deliverables_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="deliverables" value="{{$val_progDeli->deliverables_desc}}" onfocusout="update_program_output_deliverables({{$val_progDeli->id}}, 'deliverables_desc', this)" class="form-control"placeholder="...">
@@ -250,7 +250,7 @@
                                          
 
                                         <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 <td class= "remove-td">
                                                     <?php
                                                         if($index > 3){?>
@@ -273,7 +273,7 @@
                                 <tr>
                                     <td colspan="3" class="report-section"><b>IV. Consultation and Advising</b></td>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status ==0 || $report_status->status ==2){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_program_consultation_advising({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -291,7 +291,7 @@
                                 <td>Nature of Advising</td>
                                 <td>Action Taken</td>
                                 <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 <td></td>
 
                                             <?php }
@@ -304,7 +304,7 @@
                                     <td>
                                         <?php
 
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_consultation_advising->date_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="date"  value="{{$val_consultation_advising->date_desc}}" onfocusout="update_program_consultation_advising({{$val_consultation_advising->id}}, 'date_desc', this)" class="form-control"placeholder="...">
@@ -317,7 +317,7 @@
                                     <td>
                                         <?php
 
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_consultation_advising->advising_nature_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="nature"  value="{{$val_consultation_advising->advising_nature_desc}}" onfocusout="update_program_consultation_advising({{$val_consultation_advising->id}}, 'advising_nature_desc', this)"class="form-control"placeholder="...">
@@ -331,7 +331,7 @@
                                     <td>
                                         <?php
 
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_consultation_advising->action_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="action" value="{{$val_consultation_advising->action_desc}}" onfocusout="update_program_consultation_advising({{$val_consultation_advising->id}}, 'action_desc', this)"class="form-control"placeholder="...">
@@ -349,7 +349,7 @@
 
                                 
                                 <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 <td class= "remove-td">
                                                     <?php
                                                         if($index > 3){?>
@@ -373,7 +373,7 @@
                                 <tr>
                                     <td colspan="1" class="report-section"><b>V.Risk and Challenges</b></td>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status ==0 || $report_status->status ==2){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_program_risk_challenges({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -393,7 +393,7 @@
                                 <td>
                                         <?php
 
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_program_risk_challenges->risk_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="risk" value="{{$val_program_risk_challenges->risk_desc}}" onfocusout="update_program_risk_challenges({{$val_program_risk_challenges->id}}, 'risk_desc', this)"class="form-control"placeholder="...">
@@ -406,7 +406,7 @@
                                      
 
                                     <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 
                                                 <td class= "remove-td">
                                                     <?php
@@ -430,7 +430,7 @@
                                 <tr>
                                     <td colspan ="1"class="report-section"><b>VI.Collaborations and Linkage</b></td>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status ==0 || $report_status->status ==2){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_pogram_collaborations_linkages({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -444,7 +444,7 @@
                                 <tr id = "tbl_tr_progcollab_{{$val_program_collab->id}}">
                                         <td>
                                             <?php
-                                                if($report_status->status == 1){?>
+                                                if($report_status->status == 1 || $report_status->status ==3){?>
                                                     <p>{{$val_program_collab->collaboration_desc}}</p>
                                                 <?php } else { ?>
                                                     <input type="text " name="" id="collaboration" value="{{$val_program_collab->collaboration_desc}}" onfocusout="update_program_collaboration_linkages({{$val_program_collab->id}}, 'collaboration_desc', this)"class="form-control"placeholder="...">
@@ -453,7 +453,7 @@
                                             
                                         </td>   
                                         <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 <td class= "remove-td">
                                                     <?php
                                                         if($index > 4){?>
@@ -474,7 +474,7 @@
                                 <tr>
                                     <td  colspan= "1"class="report-section"><b>VII. Problems Encountered</b></td>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status ==0 || $report_status->status ==2){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_program_problems({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -497,7 +497,7 @@
                                     <td>
                                         <?php
 
-                                        if($report_status->status == 1){?>
+                                        if($report_status->status == 1 || $report_status->status ==3){?>
                                             <p>{{$val_program_problem_encountered->problem_desc}}</p>
                                         <?php } else { ?>
                                             <input type="text " name="" id="problems" value="{{$val_program_problem_encountered->problem_desc}}" onfocusout="update_program_problems_ecountered({{$val_program_problem_encountered->id}}, 'problem_desc', this)" class="form-control"placeholder="...">
@@ -509,7 +509,7 @@
                                     
 
                                     <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 <td class= "remove-td">
                                                     <?php
                                                         if($index > 4){?>
@@ -531,7 +531,7 @@
                                 <tr>
                                     <td  colspan="1" class="report-section"><b>VIII. Recommendations</b></td>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status ==0 || $report_status->status ==2){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_program_recommendations({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -552,7 +552,7 @@
                                     <td>
                                         <?php
 
-                                        if($report_status->status == 1){?>
+                                        if($report_status->status == 1 || $report_status->status ==3){?>
                                             <p>{{$val_program_recommendation->recommendation_desc}}</p>
                                         <?php } else { ?>
                                             <input type="text " name="" id="recommendations" value="{{$val_program_recommendation->recommendation_desc}}"  onfocusout="update_program_recommendations({{$val_program_recommendation->id}}, 'recommendation_desc', this)" class="form-control"placeholder="...">
@@ -564,7 +564,7 @@
                                   
 
                                     <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                  <td class= "remove-td">
                                                         <?php
                                                             if($index > 4){?>
@@ -588,7 +588,7 @@
                                 <tr>
                                     <td colspan="1" class="report-section"><b>IX.Program Plans</b></td>
                                     <?php
-                                        if($report_status->status != 1){?>
+                                        if($report_status->status ==0 || $report_status->status ==2){?>
                                             <td class="col-1 report-section add-btn"> 
                                                 <button type="button" class="btn  btn-info add-button" onclick="add_program_plans({{$report_id}});" > <i class='bx bx-plus'></i>Add</button>
                                             </td>   
@@ -610,7 +610,7 @@
                                     <td>
                                         <?php
 
-                                        if($report_status->status == 1){?>
+                                        if($report_status->status == 1 || $report_status->status ==3){?>
                                             <p>{{$val_program_plans->plan_desc}}</p>
                                         <?php } else { ?>
                                             <input type="text " name="" id="plans" value="{{$val_program_plans->plan_desc}}" onfocusout="update_program_plans({{$val_program_plans->id}}, 'plan_desc', this)" class="form-control"placeholder="...">
@@ -622,7 +622,7 @@
                                     
 
                                     <?php
-                                            if($report_status->status != 1){?>
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 <td class= "remove-td">
                                                     <?php
                                                         if($index > 2){?>
@@ -644,18 +644,15 @@
                         <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Save Changes</b></button>
                         <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Cancel</b></button> -->
 
-                                <?php
-                                             if($report_status->status ==0){?>
+                        <?php
+                                            if($report_status->status ==0 || $report_status->status ==2){?>
                                                 <!-- <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}});"><b style=" color:white; padding:1em;"> Add Report</b></button> -->
                                                 <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}})"><b style=" color:white; padding:1em;">Add Report</b></button>
                                                 <a href="{{route('ous.index')}}" class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Save as draft</b></a>
                                                 <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24; color:white;">Save as draft </button> -->
                                                 <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Cancel</b></button> -->
 
-                                            <?php } elseif ($report_status->status==2) { ?>
-                                                <button type =button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;" onclick="conferm_submit({{$report_id}})"><b style=" color:white; padding:1em;">Add Report</b></button>
-                                                <a href="{{route('ous.index')}}" class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Save as draft</b></a>
-                                            
+                                    
                                             <?php } else { ?>
                                             <!-- <button class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Back</b></button> -->
                                             <a href="{{route('ous.index')}}" class="mt-2  text-center btn btn-primary" style=" border: none; background: #a41d24;"><b style=" color:white; padding:1em;">Back</b></a>
@@ -672,6 +669,7 @@
 
 @endsection
 <script>
+
 function conferm_submit(e){
     swal({
         text: 'Are you sure you want to submit this report? Once submitted you can no longer change its content',
